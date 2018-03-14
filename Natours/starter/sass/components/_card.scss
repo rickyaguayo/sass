@@ -4,10 +4,10 @@
 	//perspective has to defined in the parent element
 	//the lower the value, the more dramatic the effect
 	position: relative;
-	height: 50rem;
+	height: 52rem;
 
 	&__side {
-		height: 50rem;
+		height: 52rem;
 		transition: all .8s ease;
 		position: absolute;
 		top: 0;
@@ -15,6 +15,7 @@
 		width: 100%;
 		backface-visibility: hidden;
 		overflow: hidden;
+		//overflow:hidden is funky with clip-path, added z-index to heading
 		border-radius: 3px;
 		box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
@@ -46,7 +47,7 @@
 		background-size: cover;
 		height: 23rem;
 		background-blend-mode: screen;
-		//this only works with moz and google
+		//this only works with mozff and google
 		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
@@ -74,5 +75,43 @@
 		position: absolute;
 		top: 12rem;
 		right: 2rem;
+		width: 75%;
+		z-index: 100;
+	}
+
+	&__heading-span {
+		//this wont be nested in heading because it isnt a child
+		padding: 1rem 1.5rem;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+		//this treats any broken rows/columns the with the same styling properties.
+
+		&--1 {
+			background-image: linear-gradient(to right bottom, 
+				rgba($color-secondary-light, .85), 
+				rgba($color-secondary-dark, .85));
+
+		}
+	}
+
+	&__details {
+		padding: 3rem;
+
+		ul {
+			list-style: none;
+			width: 80%;
+			margin: 0 auto;
+			//this centers the block inside the block
+
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid $color-grey-light-2;
+				}
+			}
+		}
 	}
 }

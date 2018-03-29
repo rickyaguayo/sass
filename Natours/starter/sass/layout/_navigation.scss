@@ -83,7 +83,7 @@
 
 		&:hover,
 		&:active {
-			background-position: 100%;
+			background-position: 100%; 
 			//with this effect, the gradient part and the white part are moving back and forth. 
 			//the white isnt covering the gradient
 			color: $color-primary;
